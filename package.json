@@ -11,6 +11,10 @@
   "author": "ricky tsang",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
