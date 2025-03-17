@@ -29,7 +29,7 @@ export const trainings = [
     description:
       "Atelier interactif pour renforcer votre estime de soi et booster votre confiance au quotidien.",
     coach: "atelier.confiance@gmail.com",
-    price: 90,
+    price: 900,
     picture:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
@@ -58,5 +58,24 @@ export const trainings = [
       "https://images.unsplash.com/photo-1519197924295-364f7e3c5a31?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
     createdAt: "2025-03-01T08:30:00.000Z",
+  },
+  {
+    id: 6,
+    title: "Formation : Gestion du temps efficace",
+    description:
+      "Apprenez à organiser vos journées pour maximiser votre productivité sans stress.",
+    instructor: "coach.time@gmail.com",
+    price: 180,
+    picture:
+      "https://images.unsplash.com/photo-1515165562835-c4c3b06c2b40?auto=format&fit=crop&w=800&q=80",
+    location: "En ligne",
+    createdAt: "2025-03-10T09:00:00.000Z",
+    category: "Formation vidéo",
+    duration: "3 heures",
+    level: "Intermédiaire",
+    format: "Vidéo à la demande",
+    language: "Français",
+    rating: 4.8,
+    tags: ["productivité", "organisation", "gestion du temps"],
   },
 ];

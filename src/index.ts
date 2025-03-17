@@ -11,9 +11,16 @@ app.get("/", (req, res) => {
 
 // get all training
 app.get("/trainings", (req, res) => {
-  res.json(trainings);
+  res.json({ trainings });
 });
 // post a training
+app.post("/trainings", (req, res) => {
+  // create new trainings
+  // return new training);
+  const training = req.body;
+  trainings.push(training);
+  res.json({ training });
+});
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
