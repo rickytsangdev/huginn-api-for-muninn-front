@@ -76,6 +76,6 @@ export const trainings = [
     format: "Vidéo à la demande",
     language: "Français",
     rating: 4.8,
-    tags: ["productivité", "organisation", "gestion du temps"],
+    tags: ["productivité", "organisation", "gestion du emps"],
   },
 ];
