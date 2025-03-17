@@ -1,4 +1,20 @@
-export const trainings = [
+interface Training {
+  id: number;
+  title: string;
+  description: string;
+  coach: string;
+  price: number;
+  picture: string;
+  location: string;
+  createdAt: string;
+  duration: string;
+  level: "Débutant" | "Intermédiaire" | "Avancé";
+  format: "vidéo à la demande" | "Présentiel" | "masterclass" | "live";
+  rating: number;
+  tags?: string[];
+}
+
+export const trainings: Training[] = [
   {
     id: 1,
     title: "Coaching en développement personnel",
@@ -10,6 +26,10 @@ export const trainings = [
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
     createdAt: "2024-11-01T09:00:00.000Z",
+    duration: "2 heures",
+    level: "Débutant",
+    format: "vidéo à la demande",
+    rating: 3,
   },
   {
     id: 2,
@@ -21,7 +41,11 @@ export const trainings = [
     picture:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
-    createdAt: "2024-12-10T14:30:00.000Z",
+    createdAt: "2024-11-01T09:00:00.000Z",
+    duration: "10 heures",
+    level: "Intermédiaire",
+    format: "Présentiel",
+    rating: 4,
   },
   {
     id: 3,
@@ -33,7 +57,11 @@ export const trainings = [
     picture:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
-    createdAt: "2025-01-05T11:00:00.000Z",
+    createdAt: "2024-11-01T09:00:00.000Z",
+    duration: "3 heures",
+    level: "Intermédiaire",
+    format: "live",
+    rating: 3.5,
   },
   {
     id: 4,
@@ -45,36 +73,26 @@ export const trainings = [
     picture:
       "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
     location: "En présentiel",
-    createdAt: "2025-02-15T16:00:00.000Z",
+    createdAt: "2024-11-01T09:00:00.000Z",
+    duration: "13 heures",
+    level: "Intermédiaire",
+    format: "Présentiel",
+    rating: 4,
   },
   {
     id: 5,
-    title: "Programme de méditation guidée",
-    description:
-      "Série de séances de méditation guidée pour réduire le stress et cultiver la pleine conscience.",
-    coach: "meditation.guide@gmail.com",
-    price: 1200,
-    picture:
-      "https://images.unsplash.com/photo-1519197924295-364f7e3c5a31?auto=format&fit=crop&w=800&q=80",
-    location: "En ligne",
-    createdAt: "2025-03-01T08:30:00.000Z",
-  },
-  {
-    id: 6,
     title: "Formation : Gestion du temps efficace",
     description:
       "Apprenez à organiser vos journées pour maximiser votre productivité sans stress.",
-    instructor: "coach.time@gmail.com",
+    coach: "coach.time@gmail.com",
     price: 180,
     picture:
       "https://images.unsplash.com/photo-1515165562835-c4c3b06c2b40?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
     createdAt: "2025-03-10T09:00:00.000Z",
-    category: "Formation vidéo",
     duration: "3 heures",
     level: "Intermédiaire",
-    format: "Vidéo à la demande",
-    language: "Français",
+    format: "masterclass",
     rating: 4.8,
     tags: ["productivité", "organisation", "gestion du emps"],
   },
