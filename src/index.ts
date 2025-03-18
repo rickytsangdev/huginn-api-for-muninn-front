@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
 app.get("/trainings", (req, res) => {
   res.json({ trainings });
 });
+
 // post a training
 app.post("/trainings", (req, res) => {
   // create new trainings
@@ -26,7 +27,6 @@ app.post("/trainings", (req, res) => {
 app.get("/trainings/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const training = trainings.find((t) => t.id === id);
-  console.log(id);
 
   if (training) {
     res.json({ training });
@@ -36,6 +36,17 @@ app.get("/trainings/:id", (req, res) => {
 });
 
 // DELETE /trainings/:id
+app.delete("/trainings/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const trainingIndex = trainings.findIndex((t) => t.id === id);
+
+  if (trainingIndex === -1) {
+    res.sendStatus(404);
+  }
+  const training = trainings[trainingIndex];
+  trainings.splice(trainingIndex, 1);
+  res.json({ training });
+});
 
 // PUT /trainings/:id
 
