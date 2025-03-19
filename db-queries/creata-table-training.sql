@@ -14,4 +14,3 @@ level TEXT,
 format TEXT, 
 rating INTEGER 
 )
-

@@ -1,9 +1,12 @@
 import express, { request, response } from "express";
 import { trainings } from "./trainings";
+import { Database } from "sqlite3";
 
 const app = express();
 const port = 3000;
 app.use(express.json());
+
+const db = new Database("db.sqlite3");
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
@@ -11,7 +14,9 @@ app.get("/", (req, res) => {
 
 // get all training
 app.get("/trainings", (req, res) => {
-  res.json({ trainings });
+  db.all("SELECT * FROM trainings", (err, trainings) => {
+    res.json({ trainings });
+  });
 });
 
 // post a training
