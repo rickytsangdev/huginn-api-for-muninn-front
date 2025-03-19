@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express, { request, response } from "express";
 import { trainings } from "./trainings";
 
 const app = express();
@@ -49,6 +49,19 @@ app.delete("/trainings/:id", (req, res) => {
 });
 
 // PUT /trainings/:id
+app.put("/trainings/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const trainingIndex = trainings.findIndex((t) => t.id === id);
+
+  if (trainingIndex === -1) {
+    response.sendStatus(404);
+  }
+  const training = trainings[trainingIndex];
+  const newData = req.body;
+  const updateTraining = { ...training, ...newData };
+  trainings.splice(trainingIndex, 1, updateTraining);
+  response.json({ training });
+});
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
