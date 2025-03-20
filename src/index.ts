@@ -6,7 +6,16 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
-const db = new Database("db.sqlite3");
+// sqlite3 Database configuration
+const sqlite3 = require("sqlite3").verbose();
+
+const db = new sqlite3.Database(":memory:", (err: Error | null) => {
+  if (err) {
+    console.error("Erreur de connexion à la base", err.message);
+  } else {
+    console.log("Connecté à la base de donneé sqlite3");
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
@@ -14,7 +23,7 @@ app.get("/", (req, res) => {
 
 // get all training
 app.get("/trainings", (req, res) => {
-  db.all("SELECT * FROM trainings", (err, trainings) => {
+  db.all("SELECT * FROM trainings", (err: any, trainings: any) => {
     res.json({ trainings });
   });
 });
