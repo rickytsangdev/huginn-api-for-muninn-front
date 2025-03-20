@@ -9,13 +9,22 @@ app.use(express.json());
 // sqlite3 Database configuration
 const sqlite3 = require("sqlite3").verbose();
 
-const db = new sqlite3.Database(":memory:", (err: Error | null) => {
+const db = new sqlite3.Database("./process.db", (err: Error | null) => {
   if (err) {
     console.error("Erreur de connexion à la base", err.message);
   } else {
     console.log("Connecté à la base de donneé sqlite3");
   }
 });
+
+// create Table if not exist
+db.run(`CREATE TABLE IF NOT EXISTS trainings (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE
+  // remplir les autres parametre ICI
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+)`);
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
@@ -28,6 +37,8 @@ app.get("/trainings", (req, res) => {
   });
 });
 
+// Créer une ressource trainings ici ICI
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // post a training
 app.post("/trainings", (req, res) => {
   // create new trainings
