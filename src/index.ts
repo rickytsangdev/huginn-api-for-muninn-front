@@ -20,10 +20,12 @@ const db = new sqlite3.Database("./process.db", (err: Error | null) => {
 // create Table if not exist
 db.run(`CREATE TABLE IF NOT EXISTS trainings (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL UNIQUE
-  // remplir les autres parametre ICI
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  title TEXT NOT NULL,
+  description TEXT NOT NULL ,
+  coach TEXT NOT NULL,
+  price INTEGER,
+  picture TEXT NOT NULL,
+  location TEXT NOT NULL
 )`);
 
 app.get("/", (req, res) => {

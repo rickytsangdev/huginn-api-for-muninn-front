@@ -6,11 +6,10 @@ interface Training {
   price: number;
   picture: string;
   location: string;
-  createdAt: string;
-  duration: string;
-  level: "Débutant" | "Intermédiaire" | "Avancé";
-  format: "vidéo à la demande" | "Présentiel" | "masterclass" | "live";
-  rating: number;
+  duration?: string;
+  level?: "Débutant" | "Intermédiaire" | "Avancé";
+  format?: "vidéo à la demande" | "Présentiel" | "masterclass" | "live";
+  rating?: number;
   tags?: string[];
 }
 
@@ -25,7 +24,6 @@ export const trainings: Training[] = [
     picture:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
-    createdAt: "2024-11-01T09:00:00.000Z",
     duration: "2 heures",
     level: "Débutant",
     format: "vidéo à la demande",
@@ -41,7 +39,6 @@ export const trainings: Training[] = [
     picture:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
-    createdAt: "2024-11-01T09:00:00.000Z",
     duration: "10 heures",
     level: "Intermédiaire",
     format: "Présentiel",
@@ -57,7 +54,6 @@ export const trainings: Training[] = [
     picture:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
-    createdAt: "2024-11-01T09:00:00.000Z",
     duration: "3 heures",
     level: "Intermédiaire",
     format: "live",
@@ -73,7 +69,6 @@ export const trainings: Training[] = [
     picture:
       "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
     location: "En présentiel",
-    createdAt: "2024-11-01T09:00:00.000Z",
     duration: "13 heures",
     level: "Intermédiaire",
     format: "Présentiel",
@@ -89,7 +84,6 @@ export const trainings: Training[] = [
     picture:
       "https://images.unsplash.com/photo-1515165562835-c4c3b06c2b40?auto=format&fit=crop&w=800&q=80",
     location: "En ligne",
-    createdAt: "2025-03-10T09:00:00.000Z",
     duration: "3 heures",
     level: "Intermédiaire",
     format: "masterclass",

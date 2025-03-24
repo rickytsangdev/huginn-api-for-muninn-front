@@ -1,7 +1,7 @@
 CREATE TABLE trainings
 
 (
-id INTERGER PRIMARY KEY, 
+id INTEGER PRIMARY KEY, 
 title TEXT NOT NULL,
 description TEXT, 
 coach TEXT, 

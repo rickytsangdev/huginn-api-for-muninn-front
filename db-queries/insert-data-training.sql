@@ -1,0 +1,2 @@
+INSERT INTO trainings (id, title, description, coach, price, picture, location, DATE) 
+VALUES (1, 'Training 1', 'Training 1 Description', '2021-01-01', '10:00:00', 'Location 1', 'Trainer 1',datetime('now')); 
