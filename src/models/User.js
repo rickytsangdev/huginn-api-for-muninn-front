@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const UserSchema = mongoose.Schema(
   {
@@ -23,9 +23,13 @@ const UserSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    roles: {
+      type: [Schema.Types.ObjectId],
+      required: true,
+      ref: "Role",
+    },
     // pour gérer les rôles des utilisateurs
   },
-
   {
     timestamps: true,
   }
