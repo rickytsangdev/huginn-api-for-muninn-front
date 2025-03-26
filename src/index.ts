@@ -2,12 +2,18 @@ import express, { request, response } from "express";
 import { trainings } from "./trainings";
 import { Database } from "sqlite3";
 
+// import mongoose ORM to connect mongodb to our backend
+import mongoose from "mongoose";
+
+
 const app = express();
 const port = 3000;
 app.use(express.json());
 
-// sqlite3 Database configuration
+// sqlite3 Database configuration ----------------------------
 const sqlite3 = require("sqlite3").verbose();
+
+
 
 const db = new sqlite3.Database("./process.db", (err: Error | null) => {
   if (err) {
@@ -27,6 +33,16 @@ db.run(`CREATE TABLE IF NOT EXISTS trainings (
   picture TEXT NOT NULL,
   location TEXT NOT NULL
 )`);
+// ------------------------------------------------------------
+
+// DB mongoDB Connection 
+const connectMongoDB = async () => {
+  try {
+
+  } catch (error) {
+
+  }
+}
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
