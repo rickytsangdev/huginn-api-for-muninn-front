@@ -1,48 +1,54 @@
 import express, { request, response } from "express";
 import { trainings } from "./trainings";
 import { Database } from "sqlite3";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // import mongoose ORM to connect mongodb to our backend
 import mongoose from "mongoose";
-
 
 const app = express();
 const port = 3000;
 app.use(express.json());
 
 // sqlite3 Database configuration ----------------------------
-const sqlite3 = require("sqlite3").verbose();
+// const sqlite3 = require("sqlite3").verbose();
 
+// const db = new sqlite3.Database("./process.db", (err: Error | null) => {
+//   if (err) {
+//     console.error("Erreur de connexion à la base", err.message);
+//   } else {
+//     console.log("Connecté à la base de donneé sqlite3");
+//   }
+// });
 
-
-const db = new sqlite3.Database("./process.db", (err: Error | null) => {
-  if (err) {
-    console.error("Erreur de connexion à la base", err.message);
-  } else {
-    console.log("Connecté à la base de donneé sqlite3");
-  }
-});
-
-// create Table if not exist
-db.run(`CREATE TABLE IF NOT EXISTS trainings (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT NOT NULL,
-  description TEXT NOT NULL ,
-  coach TEXT NOT NULL,
-  price INTEGER,
-  picture TEXT NOT NULL,
-  location TEXT NOT NULL
-)`);
+// // create Table if not exist
+// db.run(`CREATE TABLE IF NOT EXISTS trainings (
+//   id INTEGER PRIMARY KEY AUTOINCREMENT,
+//   title TEXT NOT NULL,
+//   description TEXT NOT NULL ,
+//   coach TEXT NOT NULL,
+//   price INTEGER,
+//   picture TEXT NOT NULL,
+//   location TEXT NOT NULL
+// )`);
 // ------------------------------------------------------------
 
-// DB mongoDB Connection 
+// DB mongoDB Connection
 const connectMongoDB = async () => {
   try {
-
+    const mongoUrl = process.env.Mongo_URL;
+    if (!mongoUrl) {
+      throw new Error("Mongo_URL is not defined in the environment variables");
+    }
+    await mongoose.connect(mongoUrl);
+    console.log("Connecté à la base de donnée MongoDB");
   } catch (error) {
-
+    console.error("Erreur de connexion à la base de donnée MongoDB", error);
+    throw error;
   }
-}
+};
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
@@ -50,9 +56,9 @@ app.get("/", (req, res) => {
 
 // get all training
 app.get("/trainings", (req, res) => {
-  db.all("SELECT * FROM trainings", (err: any, trainings: any) => {
-    res.json({ trainings });
-  });
+  // db.all("SELECT * FROM trainings", (err: any, trainings: any) => {
+  //   res.json({ trainings });
+  // });
 });
 
 // Créer une ressource trainings ici ICI
@@ -106,6 +112,19 @@ app.put("/trainings/:id", (req, res) => {
   response.json({ training });
 });
 
-app.listen(port, () => {
-  console.log(`app listening on port ${port}`);
-});
+const startServer = async () => {
+  try {
+    await connectMongoDB();
+    console.log("MongoDB connection established. Starting server...");
+    app.listen(port, () => {
+      console.log(`app listening on port ${port}`);
+    });
+  } catch (error) {
+    console.error(
+      "Failed to start server due to MongoDB connection error",
+      error
+    );
+  }
+};
+
+startServer();
