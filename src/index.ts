@@ -1,6 +1,7 @@
 import express, { request, response } from "express";
 import { trainings } from "./trainings";
 import dotenv from "dotenv";
+import roleRoute from "./routes/role";
 
 dotenv.config();
 
@@ -26,7 +27,7 @@ const connectMongoDB = async () => {
   }
 };
 
-// app.use("/api/role");
+app.use("/api/role", roleRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
