@@ -1,6 +1,5 @@
 import express, { request, response } from "express";
 import { trainings } from "./trainings";
-import { Database } from "sqlite3";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -11,29 +10,6 @@ import mongoose from "mongoose";
 const app = express();
 const port = 3000;
 app.use(express.json());
-
-// sqlite3 Database configuration ----------------------------
-// const sqlite3 = require("sqlite3").verbose();
-
-// const db = new sqlite3.Database("./process.db", (err: Error | null) => {
-//   if (err) {
-//     console.error("Erreur de connexion à la base", err.message);
-//   } else {
-//     console.log("Connecté à la base de donneé sqlite3");
-//   }
-// });
-
-// // create Table if not exist
-// db.run(`CREATE TABLE IF NOT EXISTS trainings (
-//   id INTEGER PRIMARY KEY AUTOINCREMENT,
-//   title TEXT NOT NULL,
-//   description TEXT NOT NULL ,
-//   coach TEXT NOT NULL,
-//   price INTEGER,
-//   picture TEXT NOT NULL,
-//   location TEXT NOT NULL
-// )`);
-// ------------------------------------------------------------
 
 // DB mongoDB Connection
 const connectMongoDB = async () => {
@@ -55,11 +31,7 @@ app.get("/", (req, res) => {
 });
 
 // get all training
-app.get("/trainings", (req, res) => {
-  // db.all("SELECT * FROM trainings", (err: any, trainings: any) => {
-  //   res.json({ trainings });
-  // });
-});
+app.get("/trainings", (req, res) => {});
 
 // Créer une ressource trainings ici ICI
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -22,7 +22,6 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.15.0",
-    "mongoose": "^8.13.0",
-    "sqlite3": "^5.1.7"
+    "mongoose": "^8.13.0"
   }
 }
