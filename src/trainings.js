@@ -1,19 +1,19 @@
-interface Training {
-  id: number;
-  title: string;
-  description: string;
-  coach: string;
-  price: number;
-  picture: string;
-  location: string;
-  duration?: string;
-  level?: "Débutant" | "Intermédiaire" | "Avancé";
-  format?: "vidéo à la demande" | "Présentiel" | "masterclass" | "live";
-  rating?: number;
-  tags?: string[];
-}
+// interface Training {
+//   id: number;
+//   title: string;
+//   description: string;
+//   coach: string;
+//   price: number;
+//   picture: string;
+//   location: string;
+//   duration?: string;
+//   level?: "Débutant" | "Intermédiaire" | "Avancé";
+//   format?: "vidéo à la demande" | "Présentiel" | "masterclass" | "live";
+//   rating?: number;
+//   tags?: string[];
+// }
 
-export const trainings: Training[] = [
+export const trainings = [
   {
     id: 1,
     title: "Coaching en développement personnel",

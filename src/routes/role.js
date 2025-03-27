@@ -4,7 +4,7 @@ import Role from "../models/Role";
 const router = express.Router();
 
 // create a new role in database
-router.post("/create", async (req, res): Promise<any> => {
+router.post("/", async (req, res) => {
   try {
     if (req.body.role && req.body.role !== "") {
       const newRole = new Role(req.body);
