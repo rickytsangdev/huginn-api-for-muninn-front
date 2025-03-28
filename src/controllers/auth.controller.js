@@ -1,14 +1,19 @@
 import Role from "../models/Role.js";
 import User from "../models/User.js";
 
+// import bcrypt package to hash password
+import bcrypt from "bcryptjs";
+
 export const signup = async (req, res) => {
   const role = await Role.find({ roles: "user" });
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
   const newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    password: req.body.password,
+    password: hashedPassword, // hashed password now !
     role: role,
   });
   await newUser.save();
