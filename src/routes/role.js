@@ -1,5 +1,4 @@
 import express from "express";
-import Role from "../models/Role.js";
 
 const router = express.Router();
 
@@ -9,7 +8,6 @@ import {
   getAllRoles,
   deleteRole,
 } from "../controllers/role.controller.js";
-import { get } from "mongoose";
 
 // create a new role in database
 router.post("/create", createRole);
