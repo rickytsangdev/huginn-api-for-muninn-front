@@ -24,7 +24,7 @@ const TrainingSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    Timestamps: true,
   }
 );
 
