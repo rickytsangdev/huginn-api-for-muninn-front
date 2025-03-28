@@ -6,6 +6,7 @@ dotenv.config();
 // import routes here
 import roleRoute from "./routes/role.js";
 import trainingRoute from "./routes/training.js";
+import authRoute from "./routes/auth.js";
 
 // import mongoose ORM to connect mongodb to our backend
 import mongoose from "mongoose";
@@ -39,6 +40,9 @@ app.use("/api/role", roleRoute);
 
 // middleware for trainings
 app.use("/api/training", trainingRoute);
+
+// middleware for authentication
+app.use("/api/auth", authRoute);
 
 const startServer = async () => {
   try {
