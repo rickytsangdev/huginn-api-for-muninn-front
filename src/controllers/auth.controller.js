@@ -34,14 +34,16 @@ export const login = async (req, res) => {
     // Check if password is correct
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).send("Invalid credentials");
+      return res.status(401).send("Invalid password");
     }
-    // Generate JWT token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-    return res.status(200).json({ token });
+    return res.status(200).send("Login Successful");
   } catch (error) {
     return res.status(500).send("Internal Server Error!");
   }
 };
+
+// // Generate JWT token
+// const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+//   expiresIn: "1h",
+// });
+// return res.status(200).json({ token });
