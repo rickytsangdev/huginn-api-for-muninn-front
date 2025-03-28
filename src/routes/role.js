@@ -7,6 +7,7 @@ import {
   createRole,
   modifyRole,
   getAllRoles,
+  deleteRole,
 } from "../controllers/role.controller.js";
 import { get } from "mongoose";
 
@@ -18,5 +19,8 @@ router.put("/update/:id", modifyRole);
 
 // Get all roles
 router.get("/", getAllRoles);
+
+// delete a role
+router.delete("/delete/:id", deleteRole);
 
 export default router;
