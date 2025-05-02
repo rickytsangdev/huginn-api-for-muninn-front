@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
-const db = new Database("db.sqlite3");
+const db = new Database("db.sqlite");
 
 app.get("/", (req, res) => {
   res.send("Hello World from processcoach server c- modify test 2🚀🔥");
